@@ -1,11 +1,11 @@
 # 2 пункт
 name = "Andry"
 
-IO.puts "Hello " <> name
-IO.puts "Hello #{name}"
-IO.puts ~s(Hello #{name})
-IO.puts ["Hello "] ++ name
-IO.puts 'Hello ' ++ 'Andry'
+IO.puts("Hello " <> name)
+IO.puts("Hello #{name}")
+IO.puts(~s(Hello #{name}))
+IO.puts(["Hello "] ++ name)
+IO.puts('Hello ' ++ 'Andry')
 
 # 3 пункт
 data = %{day: 13, month: 10, year: 2001}
