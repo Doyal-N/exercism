@@ -1,3 +1,5 @@
+# LinkProcess.run
+# LinkProcess.listen
 defmodule LinkProcess do
   def run do
     pid = spawn(LinkProcess, :function, [self()])
@@ -5,7 +7,7 @@ defmodule LinkProcess do
   end
 
   def function(pid) do
-    Process.sleep(6000)
+    Process.sleep(4000)
     send(pid, "Huba")
   end
 

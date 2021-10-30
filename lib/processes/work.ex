@@ -1,17 +1,18 @@
+# pid = Work.create
 defmodule Work do
   def create do
-    spawn(Work, :receive_msg, ["foo"])
+    spawn(Work, :receive_msg, [])
   end
 
-  def receive_msg(msg) do
+  def receive_msg do
     receive do
-      _msg when msg == "exit" ->
-        IO.puts("Bye")
-        exit(:normal)
+      :exit ->
+        IO.puts("Bye, process alive.")
+        Process.exit(self(), :kill)
 
       msg ->
         IO.puts(msg)
-        receive_msg(msg)
+        receive_msg()
     end
   end
 end
