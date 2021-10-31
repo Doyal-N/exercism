@@ -7,7 +7,7 @@ defmodule Work do
   def receive_msg do
     receive do
       :exit ->
-        IO.puts("Bye, process alive.")
+        IO.puts("Bye, process died.")
         Process.exit(self(), :kill)
 
       msg ->
