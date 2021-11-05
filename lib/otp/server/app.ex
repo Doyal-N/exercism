@@ -7,7 +7,7 @@ defmodule Server.App do
 
   def init(_args) do
     children = [
-      {Calculator, 0},
+      {Calculator, 0}
     ]
 
     Supervisor.init(children, strategy: :rest_for_one)
