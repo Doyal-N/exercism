@@ -1,5 +1,16 @@
 defmodule Calculator do
-  @server Server.Api
+  @server Server.Inward
+  @me __MODULE__
+
+  def child_spec(opts) do
+    %{
+      id: @me,
+      start: {@me, :start_link, [opts]},
+      type: :worker,
+      restart: :permanent,
+      shutdown: 500
+    }
+  end
 
   def start_link(start_state) do
     GenServer.start_link(@server, start_state, name: @server)
