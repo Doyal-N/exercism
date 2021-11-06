@@ -6,14 +6,31 @@ defmodule Server.Inward do
     {:ok, state}
   end
 
-  def handle_call(request, _from, state) do
-    case request do
-      {:add, num} -> {:reply, Logic.add(state, num), Logic.add(state, num)}
-      {:div, num} when num == 0 -> {:reply, Logic.divide(state, num), state}
-      {:div, num} -> {:reply, Logic.divide(state, num), Logic.divide(state, num)}
-      {:mult, num} -> {:reply, Logic.mult(state, num), Logic.mult(state, num)}
-      :clean -> {:reply, Logic.clean(), Logic.clean()}
+  def handle_call({:add, num}, _from, state) do
+    case Logic.add(state, num) do
+      {:ok, result} -> {:reply, result, result}
+      {:error, result} -> {:reply, result, state}
     end
+  end
+
+  def handle_call({:mult, num}, _from, state) do
+    case Logic.mult(state, num) do
+      {:ok, result} -> {:reply, result, result}
+      {:error, result} -> {:reply, result, state}
+    end
+  end
+
+  def handle_call({:div, num}, _from, state) do
+    case Logic.divide(state, num) do
+      {:ok, result} -> {:reply, result, result}
+      {:error, :division_by_zero} -> {:reply, IO.puts("Error. Division by zero"), state}
+      {:error, result} -> {:reply, result, state}
+    end
+  end
+
+  def handle_call(:clean, _from, _state) do
+    result = Logic.clean()
+    {:reply, result, result}
   end
 
   def terminate(_reason, state) do
