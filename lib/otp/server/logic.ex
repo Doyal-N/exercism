@@ -1,4 +1,8 @@
 defmodule Server.Logic do
+  @moduledoc """
+  Bisness logic for server
+  """
+
   def add(current_num, num) when is_integer(num) and is_integer(current_num) do
     {:ok, num + current_num}
   end

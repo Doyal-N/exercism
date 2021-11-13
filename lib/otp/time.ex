@@ -1,5 +1,8 @@
-# GenServer.start_link(Otp.Time, [])
 defmodule Otp.Time do
+  @moduledoc """
+  Otp module
+  GenServer.start_link(Otp.Time, [])
+  """
   use GenServer
 
   def start_link do

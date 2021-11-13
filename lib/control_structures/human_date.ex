@@ -1,4 +1,7 @@
 defmodule HumanDate do
+  @moduledoc """
+    Date functions
+  """
   use Timex
   import Times
   import Ending

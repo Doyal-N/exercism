@@ -1,4 +1,7 @@
 defmodule Times do
+  @moduledoc """
+  Define time
+  """
   def part_of_day do
     time = Time.utc_now()
 

@@ -1,4 +1,7 @@
 defmodule Server.Inward do
+  @moduledoc """
+  Server functions
+  """
   use GenServer
   alias Server.Logic
 

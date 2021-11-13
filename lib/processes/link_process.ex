@@ -1,6 +1,9 @@
-# LinkProcess.run
-# LinkProcess.listen
 defmodule LinkProcess do
+  @moduledoc """
+  Link process module
+  LinkProcess.run
+  LinkProcess.listen
+  """
   def run do
     pid = spawn(LinkProcess, :function, [self()])
     Process.monitor(pid)

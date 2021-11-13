@@ -1,4 +1,7 @@
 defmodule Ending do
+  @moduledoc """
+  Correcrt ending module
+  """
   def correct_ending(number, one, few, many) do
     last_num = rem(number, 10)
     last_num2 = rem(number, 100)

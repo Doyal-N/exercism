@@ -1,5 +1,8 @@
-# pid = Work.create
 defmodule Work do
+  @moduledoc """
+    Work with processes
+    pid = Work.create
+  """
   def create do
     spawn(Work, :receive_msg, [])
   end

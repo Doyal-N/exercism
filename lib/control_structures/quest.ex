@@ -1,4 +1,7 @@
 defmodule Quest do
+  @moduledoc """
+  Quest module
+  """
   def user_input(msg) do
     IO.gets(msg)
     |> String.trim()

@@ -1,4 +1,7 @@
 defmodule Condition do
+  @moduledoc """
+  Conditional module
+  """
   def more_num(a, a), do: "Равно"
 
   def more_num(a, b) do

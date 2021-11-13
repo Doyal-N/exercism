@@ -1,4 +1,7 @@
 defmodule Calculator do
+  @moduledoc """
+  Calculator interface
+  """
   @server Server.Inward
 
   def child_spec(opts) do

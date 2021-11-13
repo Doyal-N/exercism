@@ -1,4 +1,7 @@
 defmodule Server.App do
+  @moduledoc """
+  Supervisor module
+  """
   use Supervisor
 
   def start_link do

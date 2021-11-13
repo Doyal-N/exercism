@@ -1,9 +1,12 @@
-# pid = spawn(Message, :count_messages, [0])
 defmodule Message do
+  @moduledoc """
+  Receive messages
+  pid = spawn(Message, :count_messages, [0])
+  """
   def count_messages(count) do
     receive do
       :count ->
-        IO.puts("Received #{count} msg")
+        "Received #{count} msg"
         exit(:normal)
 
       msg ->
@@ -27,7 +30,7 @@ defmodule Message do
       max_concurrency: 4,
       timeout: 4_000
     )
-    |> Enum.each(&IO.inspect/1)
+    |> Enum.each(&IO.puts/1)
 
     Time.utc_now()
   end

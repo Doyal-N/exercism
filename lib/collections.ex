@@ -1,4 +1,7 @@
 defmodule Collections do
+  @moduledoc """
+    Transform collections
+  """
   def transform_list_with_enum(list) do
     list
     |> Enum.map(&(&1 * 2))
@@ -20,7 +23,6 @@ defmodule Collections do
     for {key, val} <- map, into: %{}, do: {val, key}
   end
 
-  # смотрел в коде языка, разобрался
   def custom_group_by(list, fun_for_key, fun_for_value \\ fn el -> el end) do
     Enum.reduce(list, %{}, fn el, acc ->
       key = fun_for_key.(el)
