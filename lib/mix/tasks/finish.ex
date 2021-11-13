@@ -6,6 +6,6 @@ defmodule Mix.Tasks.Finish do
   def run(msg) do
     System.cmd("git", ["add", "."])
     System.cmd("git", ["commit", "-m", "#{msg}"])
-    System.cmd("git", ["push", "HEAD"])
+    System.cmd("git", ["push", "origin", "HEAD"])
   end
 end
