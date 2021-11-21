@@ -30,7 +30,10 @@ defmodule LearningElixir.MixProject do
 
   defp aliases do
     [
-      credo: ["credo --strict"]
+      credo: ["credo --strict"],
+      reset_comit: [&reset/0]
     ]
   end
+
+  def reset, do: System.cmd("git", ["reset", "--soft", "HEAD^"])
 end
